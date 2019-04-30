@@ -14,8 +14,7 @@ namespace DigitalCensus.Dotnet.Dal.Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("CensusHouseNumber")]
-        public int? ID { get; set; }
+        public int ID { get; set; }
         public Guid UniqueKey { get; set; }
         public string ApartmentNumber { get; set; }
         public string StreetName { get; set; }
@@ -24,6 +23,16 @@ namespace DigitalCensus.Dotnet.Dal.Entity
         public string HouseHeadPerson { get; set; }
         public virtual Ownership OwnershipStatus { get; set; }
         public int RoomQuantity { get; set; }
+        private string censusHouseNumber;
+        public string CensusHouseNumber { get
+            {
+             return HouseHeadPerson + StreetName + City;
+            }
+            set
+            {
+                censusHouseNumber=HouseHeadPerson + StreetName + City;
+            }
+        }
         public virtual IEnumerable<Citizen> Citizens { get; set; }
     }
 }

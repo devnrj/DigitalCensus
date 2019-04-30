@@ -68,7 +68,7 @@ namespace DigitalCensus.Dotnet.Dal.Repository
             User User = Mapper.mapper.Map<User>(entity);
             User existingUser = Mapper.mapper.Map<User>(GetSingle(User.UniqueKey));
             existingUser = User;
-            _context.SaveChanges();
+             _context.SaveChanges();
         }
 
         public IEnumerable<UserDto> GetAll()

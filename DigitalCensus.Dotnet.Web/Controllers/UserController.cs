@@ -40,27 +40,17 @@ namespace DigitalCensus.Dotnet.Web.Controllers
             }
             return Request.CreateResponse(HttpStatusCode.OK, result as UserDto);
         }
-        //login
-        
-        //public HttpResponseMessage Post([FromBody]UserAccountDto userAccountDto)
-        //{
-        //    Guid result = _userAccountService.Get(userAccountDto);
-        //    UserDto User;
-        //    if (Guid.Empty == result || result == null)
-        //    {
-        //        return Request.CreateResponse(HttpStatusCode.NotFound);
-        //    }
-        //    else
-        //    {
-        //        User=_service.GetUserByAccountID(result);
-        //        if (User == null)
-        //        {
-        //            return Request.CreateResponse(HttpStatusCode.BadRequest);
-        //        }
-        //    }
-        //    User.ID = 0;
-        //    return Request.CreateResponse(HttpStatusCode.OK, User);
-        //}
+       
+        [HttpPut]
+        public HttpResponseMessage Put([FromBody]UserDto user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+            _service.Edit(user);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
         [HttpPost]
         public HttpResponseMessage Post([FromBody]UserDto user)
         {

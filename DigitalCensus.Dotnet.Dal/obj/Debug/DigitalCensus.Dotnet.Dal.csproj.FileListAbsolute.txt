@@ -10,8 +10,6 @@ C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\obj\
 C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\obj\Debug\DigitalCensus.Dotnet.Dal.csproj.CopyComplete
 C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\obj\Debug\DigitalCensus.Dotnet.Dal.dll
 C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\obj\Debug\DigitalCensus.Dotnet.Dal.pdb
-C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\obj\Debug\DigitalCensus.Dotnet.Dal.Migrations.InitialCreate.resources
-C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\obj\Debug\DigitalCensus.Dotnet.Dal.csproj.GenerateResource.cache
 C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\bin\Debug\CommonServiceLocator.dll
 C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\bin\Debug\DigitalCensus.Dotnet.Dtos.dll
 C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\bin\Debug\Microsoft.Web.Infrastructure.dll
@@ -35,4 +33,5 @@ C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\bin\
 C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\bin\Debug\AutoMapper.pdb
 C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\bin\Debug\AutoMapper.xml
 C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\bin\Debug\System.ValueTuple.xml
-C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\obj\Debug\DigitalCensus.Dotnet.Dal.Migrations.NullableID.resources
+C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\obj\Debug\DigitalCensus.Dotnet.Dal.Migrations.InitialMgrtn.resources
+C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\obj\Debug\DigitalCensus.Dotnet.Dal.csproj.GenerateResource.cache

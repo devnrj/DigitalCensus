@@ -91,13 +91,9 @@
     <Compile Include="Entity\User.cs" />
     <Compile Include="Entity\UserAccount.cs" />
     <Compile Include="Helper\Mapper.cs" />
-    <Compile Include="Migrations\201904240450330_InitialCreate.cs" />
-    <Compile Include="Migrations\201904240450330_InitialCreate.Designer.cs">
-      <DependentUpon>201904240450330_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904271737541_NullableID.cs" />
-    <Compile Include="Migrations\201904271737541_NullableID.Designer.cs">
-      <DependentUpon>201904271737541_NullableID.cs</DependentUpon>
+    <Compile Include="Migrations\201904301614570_InitialMgrtn.cs" />
+    <Compile Include="Migrations\201904301614570_InitialMgrtn.Designer.cs">
+      <DependentUpon>201904301614570_InitialMgrtn.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,18 +107,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904240450330_InitialCreate.resx">
-      <DependentUpon>201904240450330_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904271737541_NullableID.resx">
-      <DependentUpon>201904271737541_NullableID.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DigitalCensus.Dotnet.Dtos\DigitalCensus.Dotnet.Dtos.csproj">
       <Project>{A4C306D7-1160-4663-B391-79B99FA75741}</Project>
       <Name>DigitalCensus.Dotnet.Dtos</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201904301614570_InitialMgrtn.resx">
+      <DependentUpon>201904301614570_InitialMgrtn.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

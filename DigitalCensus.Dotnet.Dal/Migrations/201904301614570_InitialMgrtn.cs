@@ -3,7 +3,7 @@ namespace DigitalCensus.Dotnet.Dal.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class InitialMgrtn : DbMigration
     {
         public override void Up()
         {
@@ -31,7 +31,7 @@ namespace DigitalCensus.Dotnet.Dal.Migrations
                 "dbo.Houses",
                 c => new
                     {
-                        CensusHouseNumber = c.Int(nullable: false, identity: true),
+                        ID = c.Int(nullable: false, identity: true),
                         UniqueKey = c.Guid(nullable: false),
                         ApartmentNumber = c.String(),
                         StreetName = c.String(),
@@ -40,8 +40,9 @@ namespace DigitalCensus.Dotnet.Dal.Migrations
                         HouseHeadPerson = c.String(),
                         OwnershipStatus = c.Int(nullable: false),
                         RoomQuantity = c.Int(nullable: false),
+                        CensusHouseNumber = c.String(),
                     })
-                .PrimaryKey(t => t.CensusHouseNumber);
+                .PrimaryKey(t => t.ID);
             
             CreateTable(
                 "dbo.UserAccounts",

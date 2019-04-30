@@ -235,7 +235,7 @@
     </Compile>
     <Compile Include="Helper\AuthorizeAttribute.cs" />
     <Compile Include="Helper\AuthProvider.cs" />
-    <Compile Include="Helper\Startup1.cs" />
+    <Compile Include="Helper\Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

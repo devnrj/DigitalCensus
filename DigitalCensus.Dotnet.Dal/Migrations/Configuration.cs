@@ -20,6 +20,7 @@ namespace DigitalCensus.Dotnet.Dal.Migrations
             {
                 new UserAccount{UniqueKey=Guid.NewGuid(),Email="neeraj.kumar@neeraj.com",Password="Neeraj@123" },
                 new UserAccount{UniqueKey=Guid.NewGuid(),Email="changu@mangu.com",Password="Changu@123" },
+                new UserAccount{UniqueKey=Guid.NewGuid(),Email="prakhar@rastogi.com",Password="Prakhar@123" },
             };
             UserAccount.ForEach(x => context.UserAccounts.Add(x));
             context.SaveChanges();
@@ -28,7 +29,9 @@ namespace DigitalCensus.Dotnet.Dal.Migrations
                 new User{UniqueKey=Guid.NewGuid(),FirstName="Neeraj",LastName="Kumar",ProfilePictureAddress="~/Image/2.jpg",
                     AadharNumber ="123456789012",IsApprover =true,UserAccount=UserAccount[0]},
                 new User{UniqueKey=Guid.NewGuid(),FirstName="Changu",LastName="Mangu",ProfilePictureAddress="~/Image/3.jpg",AadharNumber="123456789011",
-                    IsApprover =false,UserAccount=UserAccount[1]}
+                    IsApprover =false,UserAccount=UserAccount[1]},
+                new User{UniqueKey=Guid.NewGuid(),FirstName="Prakhar",LastName="Rastogi",ProfilePictureAddress="~/Image/prakhar.jpg",AadharNumber="123456789012",
+                    IsApprover=false,UserAccount=UserAccount[2],RequestStatus=VolunteerRequest.Approved}
             };
             User.ForEach(x => context.Users.Add(x));
             context.SaveChanges();

@@ -16,7 +16,7 @@ namespace DigitalCensus.Dotnet.Web
         public static void RegisterComponents()
         {
 			var container = new UnityContainer();
-
+            
             // register all your components with the container here
             // it is NOT necessary to register your controllers
 
@@ -38,6 +38,9 @@ namespace DigitalCensus.Dotnet.Web
             container.RegisterType<IUserAccountService, UserAccountService>();
 
             container.RegisterType<AuthProvider, AuthProvider>();
+
+            //startup config resolution
+            Startup.IoC = container;
             //WebApi
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
 
