@@ -44,6 +44,11 @@ namespace DigitialCensus.Dotenet.Services.Concrete
             return _repository.GetSingle(id); 
         }
 
+        public IEnumerable<UserDto> GetByStatus(DigitalCensus.Dotnet.Dtos.Models.VolunteerRequest request)
+        {
+            return _repository.GetByStatus(request);
+        }
+
         public UserDto GetUserByAccountID(Guid id)
         {
             return _repository.GetUserByAccountID(id);

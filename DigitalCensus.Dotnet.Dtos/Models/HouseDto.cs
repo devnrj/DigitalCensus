@@ -18,6 +18,7 @@ namespace DigitalCensus.Dotnet.Dtos.Models
         public string HouseHeadPerson { get; set; }
         public virtual Ownership OwnershipStatus { get; set; }
         public int RoomQuantity { get; set; }
+        public string CensusHouseNumber { get; set; }
         public virtual IEnumerable<CitizenDto> Citizens { get; set; }
     }
 }

@@ -38,8 +38,8 @@ namespace DigitalCensus.Dotnet.Dal.Migrations
             var Citizen = new List<Citizen>()
             {
                 new Citizen{UniqueKey=Guid.NewGuid(),PersonName="Babban",RelationWithHead=Relation.Son,Gender=Gender.Male,DateOfBirth=new DateTime(1999,02,25),
-                            MaritalStatus=MaritalStatus.Single,MarriageAge=null,OccupationType=Occupation.Student,CensusHouseNumber=null,
-                            IndustryNature =IndustryNature.Private}
+                            MaritalStatus=MaritalStatus.Single,MarriageAge=null,OccupationType=Occupation.Student,
+                            IndustryNature =IndustryNature.Engineering}
             };
             Citizen.ForEach(x => context.Citizens.Add(x));
             context.SaveChanges();

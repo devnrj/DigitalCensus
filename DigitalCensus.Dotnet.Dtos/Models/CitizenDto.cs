@@ -20,7 +20,7 @@ namespace DigitalCensus.Dotnet.Dtos.Models
     }
     public enum IndustryNature
     {
-        Private, Public 
+        Engineering, Medical, Pharmacy, Accounting, HumanResources
     }
     public class CitizenDto
     {
@@ -33,9 +33,6 @@ namespace DigitalCensus.Dotnet.Dtos.Models
         public MaritalStatus MaritalStatus { get; set; }
         public int? MarriageAge { get; set; }
         public virtual Occupation OccupationType { get; set; }
-        public int? CensusHouseNumber { get; set; }
-        public virtual HouseDto House { get; set; }
-        // What is nature of occupation industry
         public IndustryNature IndustryNature { get; set; }
     }
 }

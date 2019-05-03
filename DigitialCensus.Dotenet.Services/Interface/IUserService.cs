@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DigitalCensus.Dotnet.Dtos.Models;
 
 namespace DigitialCensus.Dotenet.Services.Interface
@@ -15,5 +12,6 @@ namespace DigitialCensus.Dotenet.Services.Interface
         UserDto GetUserByAccountID(Guid id);
         UserDto GetByID(Guid id);
         void Delete(Guid id);
+        IEnumerable<UserDto> GetByStatus(VolunteerRequest request);
     }
 }

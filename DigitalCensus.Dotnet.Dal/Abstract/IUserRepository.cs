@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DigitalCensus.Dotnet.Dtos.Models;
 
 namespace DigitalCensus.Dotnet.Dal.Abstract
@@ -15,5 +12,6 @@ namespace DigitalCensus.Dotnet.Dal.Abstract
         IEnumerable<UserDto> GetAll();
         UserDto GetSingle(Guid key);
         UserDto GetUserByAccountID(Guid key);
+        IEnumerable<UserDto> GetByStatus(DigitalCensus.Dotnet.Dtos.Models.VolunteerRequest request);
     }
 }

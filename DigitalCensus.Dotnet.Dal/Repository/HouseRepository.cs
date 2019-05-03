@@ -19,13 +19,19 @@ namespace DigitalCensus.Dotnet.Dal.Repository
         {
             _context = context;
         }
-        public void Add(HouseDto entity)
+        public string Add(HouseDto entity)
         {
-            House House = Mapper.mapper.Map<House>(entity);
-            House.UniqueKey = Guid.NewGuid();
-            //House.ID = (_context.Set<House>().OrderByDescending(u => u.ID).FirstOrDefault()).ID+1;
-            _context.Set<House>().Add(House);
-            _context.SaveChanges();
+            try
+            {
+                House House = Mapper.mapper.Map<House>(entity);
+                House.UniqueKey = Guid.NewGuid();
+                _context.Set<House>().Add(House);
+                _context.SaveChanges();
+                return House.CensusHouseNumber;
+            }catch(Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public void Delete(Guid guid)
@@ -57,6 +63,12 @@ namespace DigitalCensus.Dotnet.Dal.Repository
         {
             House House = _context.Set<House>().Where(x => x.UniqueKey == key).FirstOrDefault<House>();
             return Mapper.mapper.Map<HouseDto>(House);
+        }
+
+        public bool IsValidCensusHouseNumber(string chn)
+        {
+            return _context.Set<House>().Where(x => x.CensusHouseNumber.Equals(chn)).FirstOrDefault<House>()==null
+                   ? false : true;
         }
     }
 }

@@ -14,9 +14,9 @@ namespace DigitialCensus.Dotenet.Services.Concrete
         {
             _repository = repository;
         }
-        public void Add(HouseDto House)
+        public string Add(HouseDto House)
         {
-            _repository.Add(House);
+            return _repository.Add(House);
         }
 
         public void Delete(Guid id)
@@ -37,6 +37,11 @@ namespace DigitialCensus.Dotenet.Services.Concrete
         public HouseDto GetByID(Guid id)
         {
             return _repository.GetSingle(id);
+        }
+
+        public bool IsValidCensusHouseNumber(string chn)
+        {
+            return _repository.IsValidCensusHouseNumber(chn);
         }
     }
 }

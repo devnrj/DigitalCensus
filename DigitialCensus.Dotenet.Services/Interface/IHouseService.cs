@@ -9,10 +9,11 @@ namespace DigitialCensus.Dotenet.Services.Interface
 {
     public interface IHouseService
     {
-        void Add(HouseDto House);
+        string Add(HouseDto House);
         void Edit(HouseDto House);
         IEnumerable<HouseDto> GetAll();
         HouseDto GetByID(Guid id);
         void Delete(Guid id);
+        Boolean IsValidCensusHouseNumber(string chn);
     }
 }

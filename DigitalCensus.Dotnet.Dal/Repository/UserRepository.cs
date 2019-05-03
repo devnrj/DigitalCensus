@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using DigitalCensus.Dotnet.Dal.Abstract;
 using DigitalCensus.Dotnet.Dal.Entity;
 using DigitalCensus.Dotnet.Dtos.Models;
@@ -65,15 +64,31 @@ namespace DigitalCensus.Dotnet.Dal.Repository
 
         public void Edit(UserDto entity)
         {
-            User User = Mapper.mapper.Map<User>(entity);
-            User existingUser = Mapper.mapper.Map<User>(GetSingle(User.UniqueKey));
-            existingUser = User;
-             _context.SaveChanges();
+            User user = _context.Set<User>().Where(x=>x.UniqueKey==entity.UniqueKey).FirstOrDefault<User>();
+            if(user != null)
+            {
+                user.IsApprover = entity.IsApprover;
+                user.FirstName = entity.FirstName;
+                user.LastName = entity.LastName;
+                user.ProfilePictureAddress = entity.ProfilePictureAddress;
+                user.RequestStatus = Mapper.mapper.Map<DigitalCensus.Dotnet.Dal.Entity.VolunteerRequest>(entity.RequestStatus);
+                user.UserAccount = Mapper.mapper.Map<UserAccount>(entity.UserAccount);
+                user.AadharNumber = entity.AadharNumber;
+                _context.SaveChanges();
+            }
         }
 
         public IEnumerable<UserDto> GetAll()
         {
             return Mapper.mapper.Map<List<UserDto>>(_context.Set<User>());
+        }
+
+        public IEnumerable<UserDto> GetByStatus(DigitalCensus.Dotnet.Dtos.Models.VolunteerRequest request)
+        {
+            return Mapper.mapper.Map<List<UserDto>>(_context.Set<User>().
+                                                    Where(x=>x.RequestStatus.ToString().Equals(request.ToString())
+                                                    && x.IsApprover==false)
+                                   );
         }
 
         public UserDto GetSingle(Guid key)

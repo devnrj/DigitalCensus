@@ -26,11 +26,11 @@ namespace DigitalCensus.Dotnet.Dal.Entity
         private string censusHouseNumber;
         public string CensusHouseNumber { get
             {
-             return HouseHeadPerson + StreetName + City;
+             return (HouseHeadPerson + StreetName + City).Trim().Replace(" ", string.Empty).ToLower();
             }
             set
             {
-                censusHouseNumber=HouseHeadPerson + StreetName + City;
+                censusHouseNumber = (HouseHeadPerson + StreetName + City).Trim().Replace(" ",string.Empty).ToLower();
             }
         }
         public virtual IEnumerable<Citizen> Citizens { get; set; }

@@ -21,9 +21,10 @@ namespace DigitalCensus.Dotnet.Dal.Entity
     {
         Employeed, Selfemployeed, Student
     }
+
     public enum IndustryNature
     {
-        Private, Public 
+        Engineering, Medical, Pharmacy, Accounting, HumanResources
     }
     public class Citizen : IEntity
     {
@@ -39,10 +40,6 @@ namespace DigitalCensus.Dotnet.Dal.Entity
         public MaritalStatus MaritalStatus { get; set; }
         public int? MarriageAge { get; set; }
         public virtual Occupation OccupationType { get; set; }
-        public int? CensusHouseNumber { get; set; }
-        [ForeignKey("CensusHouseNumber")]
-        public virtual House House { get; set; }
-        // What is nature of occupation industry
         public IndustryNature IndustryNature { get; set; }
     }
 }

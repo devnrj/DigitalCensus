@@ -52,14 +52,14 @@ namespace DigitalCensus.Dotnet.Web.Helper
                 identity.AddClaim(new Claim("Name", authUser.FirstName + " " + authUser.LastName));
                 identity.AddClaim(new Claim("Email", authUser.UserAccount.Email));
                 identity.AddClaim(new Claim("Guid", authUser.UniqueKey.ToString()));
-                identity.AddClaim(new Claim("isApprover", authUser.IsApprover.ToString()));
+                identity.AddClaim(new Claim("Role", authUser.IsApprover.ToString()));
                 var props = new AuthenticationProperties(new Dictionary<string, string>
                 {
                     { "Status", Convert.ToInt16(authUser.RequestStatus).ToString() },
                     { "Name", authUser.FirstName+" "+authUser.LastName },
                     { "Email", authUser.UserAccount.Email },
                     { "Guid", authUser.UniqueKey.ToString() },
-                    { "isApprover", authUser.IsApprover.ToString() }
+                    { "Role", authUser.IsApprover.ToString() }
                 });
                 var ticket = new AuthenticationTicket(identity, props);
                 context.Validated(ticket);

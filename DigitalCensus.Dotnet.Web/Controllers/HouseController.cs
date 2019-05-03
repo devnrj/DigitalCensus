@@ -18,9 +18,32 @@ namespace DigitalCensus.Dotnet.Web.Controllers
             _houseService = houseService;
         }
 
+        [HttpGet]
+        [Route("api/house/cnh/{censusHouseNumber}")]
+        public HttpResponseMessage Get(string censusHouseNumber)
+        {
+            if (_houseService.IsValidCensusHouseNumber(censusHouseNumber.Trim().ToLower()))
+            {
+                return Request.CreateResponse(HttpStatusCode.OK,"valid");
+            }
+            return Request.CreateResponse(HttpStatusCode.NotFound,"invalid");
+        }
+
+        [HttpGet]
         public IEnumerable<HouseDto> Get()
         {
             return _houseService.GetAll();
+        }
+        
+        [HttpPost]
+        public HttpResponseMessage Post([FromBody]HouseDto houseDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Missing values");
+            }
+            string result = _houseService.Add(houseDto);
+            return Request.CreateResponse(HttpStatusCode.OK, result);
         }
     }
 }

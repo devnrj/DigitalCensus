@@ -35,3 +35,4 @@ C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\bin\
 C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\bin\Debug\System.ValueTuple.xml
 C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\obj\Debug\DigitalCensus.Dotnet.Dal.Migrations.InitialMgrtn.resources
 C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\obj\Debug\DigitalCensus.Dotnet.Dal.csproj.GenerateResource.cache
+C:\Users\neerajkumar03\source\repos\Digital-Census\DigitalCensus.Dotnet.Dal\obj\Debug\DigitalCensus.Dotnet.Dal.Migrations.CitizenUpdates.resources

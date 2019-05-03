@@ -6,10 +6,11 @@ namespace DigitalCensus.Dotnet.Dal.Abstract
 {
     public interface IHouseRepository : IEntity
     {
-        void Add(HouseDto entity);
+        string Add(HouseDto entity);
         void Delete(Guid guid);
         void Edit(HouseDto entity);
         IEnumerable<HouseDto> GetAll();
         HouseDto GetSingle(Guid key);
+        bool IsValidCensusHouseNumber(string chn);
     }
 }

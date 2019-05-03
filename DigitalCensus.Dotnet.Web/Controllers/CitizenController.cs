@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using DigitalCensus.Dotnet.Dtos.Models;
 using DigitialCensus.Dotenet.Services.Interface;
@@ -17,6 +19,16 @@ namespace DigitalCensus.Dotnet.Web.Controllers
         public IEnumerable<CitizenDto> Get()
         {
             return _citizenService.GetAll();
+        }
+
+        public HttpResponseMessage Post([FromBody]CitizenDto citizenDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Missing values");
+            }
+            _citizenService.Add(citizenDto);
+            return Request.CreateResponse(HttpStatusCode.OK, "Citizen added in National Population Register");
         }
     }
 }
