@@ -13,5 +13,6 @@ namespace DigitialCensus.Dotenet.Services.Interface
         UserDto GetByID(Guid id);
         void Delete(Guid id);
         IEnumerable<UserDto> GetByStatus(VolunteerRequest request);
+        bool IsUniqueAadhar(string aadharNumber);
     }
 }

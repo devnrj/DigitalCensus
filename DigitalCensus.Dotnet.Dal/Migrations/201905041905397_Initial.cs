@@ -3,7 +3,7 @@ namespace DigitalCensus.Dotnet.Dal.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialMgrtn : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -20,12 +20,12 @@ namespace DigitalCensus.Dotnet.Dal.Migrations
                         MaritalStatus = c.Int(nullable: false),
                         MarriageAge = c.Int(),
                         OccupationType = c.Int(nullable: false),
-                        CensusHouseNumber = c.Int(),
                         IndustryNature = c.Int(nullable: false),
+                        CitizenHouseNumberRefID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Houses", t => t.CensusHouseNumber)
-                .Index(t => t.CensusHouseNumber);
+                .ForeignKey("dbo.Houses", t => t.CitizenHouseNumberRefID, cascadeDelete: true)
+                .Index(t => t.CitizenHouseNumberRefID);
             
             CreateTable(
                 "dbo.Houses",
@@ -78,9 +78,9 @@ namespace DigitalCensus.Dotnet.Dal.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.Users", "UserAccount_ID", "dbo.UserAccounts");
-            DropForeignKey("dbo.Citizens", "CensusHouseNumber", "dbo.Houses");
+            DropForeignKey("dbo.Citizens", "CitizenHouseNumberRefID", "dbo.Houses");
             DropIndex("dbo.Users", new[] { "UserAccount_ID" });
-            DropIndex("dbo.Citizens", new[] { "CensusHouseNumber" });
+            DropIndex("dbo.Citizens", new[] { "CitizenHouseNumberRefID" });
             DropTable("dbo.Users");
             DropTable("dbo.UserAccounts");
             DropTable("dbo.Houses");

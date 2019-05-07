@@ -64,7 +64,14 @@ namespace DigitalCensus.Dotnet.Web.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, result as UserDto);
         }
 
+        [HttpGet]
+        [Route("api/verifyAadhar/{AadharNumber}")]
+        public HttpResponseMessage Get(string AadharNumber)
+        {
+            string result = _service.IsUniqueAadhar(AadharNumber)==true?"true":"false";
+            return Request.CreateResponse(HttpStatusCode.OK, result.ToString());
 
+        }
         [HttpGet]
         [Route("api/user/status/{status}")]
         public HttpResponseMessage Get(VolunteerRequest status)
@@ -86,6 +93,27 @@ namespace DigitalCensus.Dotnet.Web.Controllers
             }
             _service.Edit(user);
             return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        [HttpGet]
+        [Route("api/downloadImage/{id}")]
+        public HttpResponseMessage DownloadFile(Guid id)
+        {
+            var rootPath = HttpContext.Current.Server.MapPath("~/Image");
+            UserDto user = _service.GetByID(id);
+            if (user != null)
+            {
+                var filePath = Path.Combine(rootPath, user.ProfilePictureAddress);
+                byte[] file = File.ReadAllBytes(filePath);
+                HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
+                response.Content = new ByteArrayContent(file);
+                response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpg");
+                return response;
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
         }
 
         [AllowAnonymous]

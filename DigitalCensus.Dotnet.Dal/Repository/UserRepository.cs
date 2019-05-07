@@ -102,5 +102,11 @@ namespace DigitalCensus.Dotnet.Dal.Repository
             User User = _context.Set<User>().Where(x => x.UserAccount.UniqueKey == key).FirstOrDefault<User>();
             return Mapper.mapper.Map<UserDto>(User);
         }
+
+        public bool IsUniqueAadhar(string aadharNumber)
+        {
+            bool result = _context.Set<User>().Where(x => x.AadharNumber.Equals(aadharNumber)).FirstOrDefault()==null?true:false;
+            return result;
+        }
     }
 }

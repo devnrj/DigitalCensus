@@ -8,9 +8,10 @@ namespace DigitalCensus.Dotnet.Dal.Abstract
     {
         string Add(HouseDto entity);
         void Delete(Guid guid);
-        void Edit(HouseDto entity);
+        string Edit(HouseDto entity);
         IEnumerable<HouseDto> GetAll();
         HouseDto GetSingle(Guid key);
-        bool IsValidCensusHouseNumber(string chn);
+        HouseDto GetHouseByCHN(string chn);
+        List<List<string>> AllStatePopulation();
     }
 }

@@ -91,13 +91,9 @@
     <Compile Include="Entity\User.cs" />
     <Compile Include="Entity\UserAccount.cs" />
     <Compile Include="Helper\Mapper.cs" />
-    <Compile Include="Migrations\201904301614570_InitialMgrtn.cs" />
-    <Compile Include="Migrations\201904301614570_InitialMgrtn.Designer.cs">
-      <DependentUpon>201904301614570_InitialMgrtn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905031024462_CitizenUpdates.cs" />
-    <Compile Include="Migrations\201905031024462_CitizenUpdates.Designer.cs">
-      <DependentUpon>201905031024462_CitizenUpdates.cs</DependentUpon>
+    <Compile Include="Migrations\201905041905397_Initial.cs" />
+    <Compile Include="Migrations\201905041905397_Initial.Designer.cs">
+      <DependentUpon>201905041905397_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,11 +113,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904301614570_InitialMgrtn.resx">
-      <DependentUpon>201904301614570_InitialMgrtn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905031024462_CitizenUpdates.resx">
-      <DependentUpon>201905031024462_CitizenUpdates.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905041905397_Initial.resx">
+      <DependentUpon>201905041905397_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

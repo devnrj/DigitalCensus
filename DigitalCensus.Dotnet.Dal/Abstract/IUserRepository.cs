@@ -13,5 +13,6 @@ namespace DigitalCensus.Dotnet.Dal.Abstract
         UserDto GetSingle(Guid key);
         UserDto GetUserByAccountID(Guid key);
         IEnumerable<UserDto> GetByStatus(DigitalCensus.Dotnet.Dtos.Models.VolunteerRequest request);
+        bool IsUniqueAadhar(string aadharNumber);
     }
 }

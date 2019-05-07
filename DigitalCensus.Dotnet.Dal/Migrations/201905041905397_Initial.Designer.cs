@@ -7,13 +7,13 @@ namespace DigitalCensus.Dotnet.Dal.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class CitizenUpdates : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CitizenUpdates));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201905031024462_CitizenUpdates"; }
+            get { return "201905041905397_Initial"; }
         }
         
         string IMigrationMetadata.Source

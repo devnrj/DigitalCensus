@@ -15,6 +15,7 @@ namespace DigitalCensus.Dotnet.Web
             // Web API configuration and services
 
             // Web API routes
+            //EnableCorsAttribute cors = new EnableCorsAttribute("http://localhost:4200", "*", "*");
             //config.EnableCors();
             config.MapHttpAttributeRoutes();
 
@@ -23,7 +24,7 @@ namespace DigitalCensus.Dotnet.Web
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-           // EnableCorsAttribute cors = new EnableCorsAttribute("http://localhost:4200", "*", "*");
+           
             
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().FirstOrDefault();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();

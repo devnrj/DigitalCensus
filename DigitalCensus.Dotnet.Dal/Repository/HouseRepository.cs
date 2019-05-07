@@ -19,12 +19,35 @@ namespace DigitalCensus.Dotnet.Dal.Repository
         {
             _context = context;
         }
+
+        private int StateWisePopulation(string stateName)
+        {
+            int count = 0;
+            return _context.Set<House>().Where(x => x.State.ToUpper().Equals(stateName)).Select(x => x.Citizens.Count).Sum();
+        }
+
+        public List<List<string>> AllStatePopulation()
+        {
+            List<string> states = _context.Set<House>().OrderBy(x => x.State).Select(x => x.State).Distinct().ToList<string>();
+            List<string> population = new List<string>();
+            
+            foreach(string state in states)
+            {
+                population.Add(StateWisePopulation(state).ToString());
+            }
+            List<List<string>> p = new List<List<string>>();
+            p.Add(states);
+            p.Add(population);
+            return p;
+        }
+
         public string Add(HouseDto entity)
         {
             try
             {
                 House House = Mapper.mapper.Map<House>(entity);
                 House.UniqueKey = Guid.NewGuid();
+                House.Citizens = Mapper.mapper.Map<List<Citizen>>(entity.Citizens);
                 _context.Set<House>().Add(House);
                 _context.SaveChanges();
                 return House.CensusHouseNumber;
@@ -46,12 +69,17 @@ namespace DigitalCensus.Dotnet.Dal.Repository
             _context.SaveChanges();
         }
 
-        public void Edit(HouseDto entity)
+        public string Edit(HouseDto entity)
         {
-            House House = Mapper.mapper.Map<House>(entity);
-            House existingHouse = Mapper.mapper.Map<House>(GetSingle(House.UniqueKey));
-            existingHouse = House;
-            _context.SaveChanges();
+            try {
+                House house = _context.Set<House>().Where(x => x.UniqueKey == entity.UniqueKey).FirstOrDefault<House>();
+                house.Citizens = Mapper.mapper.Map<List<Citizen>>(entity.Citizens);
+                _context.SaveChanges();
+                return "Citizen Added Successfully";
+            }catch(Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public IEnumerable<HouseDto> GetAll()
@@ -65,10 +93,11 @@ namespace DigitalCensus.Dotnet.Dal.Repository
             return Mapper.mapper.Map<HouseDto>(House);
         }
 
-        public bool IsValidCensusHouseNumber(string chn)
+        public HouseDto GetHouseByCHN(string chn)
         {
-            return _context.Set<House>().Where(x => x.CensusHouseNumber.Equals(chn)).FirstOrDefault<House>()==null
-                   ? false : true;
+            House House= _context.Set<House>().Where(x => x.CensusHouseNumber.Equals(chn)).FirstOrDefault<House>();
+            House.Citizens = _context.Set<Citizen>().Where(x => x.CitizenHouseNumberRefID == House.ID).ToList<Citizen>();
+            return Mapper.mapper.Map<HouseDto>(House);
         }
     }
 }

@@ -13,6 +13,12 @@ namespace DigitalCensus.Dotnet.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+           // routes.MapRoute(
+           //    name: "Image",
+           //    url: "api/downloadImage/{id}",
+           //    defaults: new { controller = "User", action = "DownloadFile", id = UrlParameter.Optional }
+           //);
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

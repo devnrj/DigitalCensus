@@ -24,9 +24,9 @@ namespace DigitialCensus.Dotenet.Services.Concrete
             _repository.Delete(id);
         }
 
-        public void Edit(HouseDto House)
+        public string Edit(HouseDto House)
         {
-            _repository.Edit(House);
+            return _repository.Edit(House);
         }
 
         public IEnumerable<HouseDto> GetAll()
@@ -39,9 +39,14 @@ namespace DigitialCensus.Dotenet.Services.Concrete
             return _repository.GetSingle(id);
         }
 
-        public bool IsValidCensusHouseNumber(string chn)
+        public HouseDto GetHouseByCHN(string chn)
         {
-            return _repository.IsValidCensusHouseNumber(chn);
+            return _repository.GetHouseByCHN(chn);
+        }
+
+        public List<List<string>> AllStatePopulation()
+        {
+            return _repository.AllStatePopulation();
         }
     }
 }

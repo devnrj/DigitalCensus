@@ -34,5 +34,6 @@ namespace DigitalCensus.Dotnet.Dtos.Models
         public int? MarriageAge { get; set; }
         public virtual Occupation OccupationType { get; set; }
         public IndustryNature IndustryNature { get; set; }
+        public int CitizenHouseNumberRefID { get; set; }
     }
 }

@@ -33,6 +33,6 @@ namespace DigitalCensus.Dotnet.Dal.Entity
                 censusHouseNumber = (HouseHeadPerson + StreetName + City).Trim().Replace(" ",string.Empty).ToLower();
             }
         }
-        public virtual IEnumerable<Citizen> Citizens { get; set; }
+        public virtual List<Citizen> Citizens { get; set; }
     }
 }

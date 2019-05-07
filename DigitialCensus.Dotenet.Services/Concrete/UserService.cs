@@ -53,5 +53,10 @@ namespace DigitialCensus.Dotenet.Services.Concrete
         {
             return _repository.GetUserByAccountID(id);
         }
+
+        public bool IsUniqueAadhar(string aadharNumber)
+        {
+            return _repository.IsUniqueAadhar(aadharNumber);
+        }
     }
 }

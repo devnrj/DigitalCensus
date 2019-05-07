@@ -41,5 +41,8 @@ namespace DigitalCensus.Dotnet.Dal.Entity
         public int? MarriageAge { get; set; }
         public virtual Occupation OccupationType { get; set; }
         public IndustryNature IndustryNature { get; set; }
+        public int CitizenHouseNumberRefID { get; set; }
+        [ForeignKey("CitizenHouseNumberRefID")]
+        public House CitizenHouseNumber { get; set; }
     }
 }
