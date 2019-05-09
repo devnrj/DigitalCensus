@@ -12,5 +12,6 @@ namespace DigitialCensus.Dotenet.Services.Interface
         UserAccountDto GetByID(Guid id);
         Guid Get(UserAccountDto userAccount);
         void Delete(Guid id);
+        string Encryptdata(string password);
     }
 }

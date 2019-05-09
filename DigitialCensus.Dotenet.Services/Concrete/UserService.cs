@@ -13,14 +13,17 @@ namespace DigitialCensus.Dotenet.Services.Concrete
     public class UserService : IUserService
     {
         private IUserRepository _repository;
-        
-        public UserService(IUserRepository repository)
+        private IUserAccountService _userAccountService;
+
+        public UserService(IUserRepository repository,IUserAccountService userAccountService)
         {
             _repository = repository;
+            _userAccountService = userAccountService;
         }
 
         public void Add(UserDto User)
         {
+            User.UserAccount.Password = _userAccountService.Encryptdata(User.UserAccount.Password);
             _repository.Add(User);
         }
 
