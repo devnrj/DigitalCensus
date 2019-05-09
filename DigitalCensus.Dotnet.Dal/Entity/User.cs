@@ -24,8 +24,11 @@ namespace DigitalCensus.Dotnet.Dal.Entity
         public string ProfilePictureAddress { get; set; }
         [Required(ErrorMessage ="Please provide AadharNumber")]
         public string AadharNumber { get; set; }
+        [Required]
         public bool IsApprover { get; set; }
+        [Required]
         public virtual UserAccount UserAccount { get; set; }
+        [Required]
         public VolunteerRequest RequestStatus { get; set; }
     }
 }

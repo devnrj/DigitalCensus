@@ -30,5 +30,12 @@ namespace DigitalCensus.Dotnet.Web.Controllers
             _citizenService.Add(citizenDto);
             return Request.CreateResponse(HttpStatusCode.OK, "Citizen added in National Population Register");
         }
+
+        [HttpGet]
+        [Route("api/agePopulation")]
+        public HttpResponseMessage AllStatePopulation()
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, _citizenService.TotalPopulation());
+        }
     }
 }

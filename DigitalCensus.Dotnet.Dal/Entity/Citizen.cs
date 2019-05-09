@@ -32,14 +32,22 @@ namespace DigitalCensus.Dotnet.Dal.Entity
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int? ID { get; set; }
+        [Required]
         public Guid UniqueKey { get; set; }
+        [Required]
         public string PersonName { get; set; }
+        [Required]
         public virtual Relation RelationWithHead { get; set; }
+        [Required]
         public virtual Gender Gender { get; set; }
+        [Required]
         public DateTime DateOfBirth { get; set; }
-        public MaritalStatus MaritalStatus { get; set; }
+        
+        public MaritalStatus? MaritalStatus { get; set; }
         public int? MarriageAge { get; set; }
+        [Required]
         public virtual Occupation OccupationType { get; set; }
+        [Required]
         public IndustryNature IndustryNature { get; set; }
         public int CitizenHouseNumberRefID { get; set; }
         [ForeignKey("CitizenHouseNumberRefID")]

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DigitalCensus.Dotnet.Dal.Abstract;
 using DigitalCensus.Dotnet.Dal.Entity;
 using DigitalCensus.Dotnet.Dtos.Models;
@@ -21,6 +19,28 @@ namespace DigitalCensus.Dotnet.Dal.Repository
         {
             _context = context;
         }
+
+        private int AgeWisePopulation(int year)
+        {
+            return _context.Set<Citizen>().Where(x => x.DateOfBirth.Year == year).Count();
+        }
+
+        public List<List<int>> TotalPopulation()
+        {
+            List<int> years= _context.Set<Citizen>().OrderBy(x => x.DateOfBirth.Year).Select(x => x.DateOfBirth.Year).Distinct().ToList<int>();
+            years.Reverse();
+            List<int> count = new List<int>();
+            foreach(int year in years)
+            {
+                count.Add(AgeWisePopulation(year));
+            }
+            List<List<int>> allPopulation = new List<List<int>>();
+            years=years.Select(x => x = DateTime.Now.Year - x).ToList();
+            allPopulation.Add(years);
+            allPopulation.Add(count);
+            return allPopulation;
+        }
+
         public void Add(CitizenDto entity)
         {
             Citizen Citizen = Mapper.mapper.Map<Citizen>(entity);

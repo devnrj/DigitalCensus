@@ -95,6 +95,14 @@
     <Compile Include="Migrations\201905041905397_Initial.Designer.cs">
       <DependentUpon>201905041905397_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905080504226_Changed.cs" />
+    <Compile Include="Migrations\201905080504226_Changed.Designer.cs">
+      <DependentUpon>201905080504226_Changed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905090710286_MStatutsNull.cs" />
+    <Compile Include="Migrations\201905090710286_MStatutsNull.Designer.cs">
+      <DependentUpon>201905090710286_MStatutsNull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CitizenRepository.cs" />
@@ -115,6 +123,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201905041905397_Initial.resx">
       <DependentUpon>201905041905397_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905080504226_Changed.resx">
+      <DependentUpon>201905080504226_Changed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905090710286_MStatutsNull.resx">
+      <DependentUpon>201905090710286_MStatutsNull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

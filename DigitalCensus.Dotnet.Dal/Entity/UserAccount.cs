@@ -10,9 +10,12 @@ namespace DigitalCensus.Dotnet.Dal.Entity
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int? ID { get; set; }
+        [Required]
         public Guid UniqueKey { get; set; }
+        [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+        [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
     }

@@ -95,8 +95,15 @@ namespace DigitalCensus.Dotnet.Dal.Repository
 
         public HouseDto GetHouseByCHN(string chn)
         {
-            House House= _context.Set<House>().Where(x => x.CensusHouseNumber.Equals(chn)).FirstOrDefault<House>();
-            House.Citizens = _context.Set<Citizen>().Where(x => x.CitizenHouseNumberRefID == House.ID).ToList<Citizen>();
+            House House = null;
+            try
+            {
+                House=_context.Set<House>().Where(x => x.CensusHouseNumber.Equals(chn)).FirstOrDefault<House>();
+                House.Citizens = _context.Set<Citizen>().Where(x => x.CitizenHouseNumberRefID == House.ID).ToList<Citizen>();
+            }catch(Exception ex)
+            {
+
+            }
             return Mapper.mapper.Map<HouseDto>(House);
         }
     }

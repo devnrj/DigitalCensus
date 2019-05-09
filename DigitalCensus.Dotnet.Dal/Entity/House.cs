@@ -15,15 +15,24 @@ namespace DigitalCensus.Dotnet.Dal.Entity
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
+        [Required]
         public Guid UniqueKey { get; set; }
+        [Required]
         public string ApartmentNumber { get; set; }
+        [Required]
         public string StreetName { get; set; }
+        [Required]
         public string City { get; set; }
+        [Required]
         public string State { get; set; }
+        [Required]
         public string HouseHeadPerson { get; set; }
+        [Required]
         public virtual Ownership OwnershipStatus { get; set; }
+        [Required]
         public int RoomQuantity { get; set; }
         private string censusHouseNumber;
+        [Required]
         public string CensusHouseNumber { get
             {
              return (HouseHeadPerson + StreetName + City).Trim().Replace(" ", string.Empty).ToLower();

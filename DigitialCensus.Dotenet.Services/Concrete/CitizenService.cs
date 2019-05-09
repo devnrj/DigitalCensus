@@ -14,6 +14,10 @@ namespace DigitialCensus.Dotenet.Services.Concrete
         {
             _repository = repository;
         }
+        public List<List<int>> TotalPopulation()
+        {
+            return _repository.TotalPopulation();
+        }
         public void Add(CitizenDto Citizen)
         {
             _repository.Add(Citizen);
@@ -38,5 +42,7 @@ namespace DigitialCensus.Dotenet.Services.Concrete
         {
             return _repository.GetSingle(id);
         }
+
+     
     }
 }

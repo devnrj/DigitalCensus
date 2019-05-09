@@ -14,5 +14,6 @@ namespace DigitialCensus.Dotenet.Services.Interface
         IEnumerable<CitizenDto> GetAll();
         CitizenDto GetByID(Guid id);
         void Delete(Guid id);
+        List<List<int>> TotalPopulation();
     }
 }

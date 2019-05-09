@@ -11,5 +11,6 @@ namespace DigitalCensus.Dotnet.Dal.Abstract
         void Edit(CitizenDto entity);
         IEnumerable<CitizenDto> GetAll();
         CitizenDto GetSingle(Guid key);
+        List<List<int>> TotalPopulation();
     }
 }

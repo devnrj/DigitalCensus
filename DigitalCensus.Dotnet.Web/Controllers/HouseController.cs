@@ -48,7 +48,7 @@ namespace DigitalCensus.Dotnet.Web.Controllers
         }
 
         [HttpGet]
-        [Route("api/population")]
+        [Route("api/statePopulation")]
         public HttpResponseMessage AllStatePopulation()
         {
             return Request.CreateResponse(HttpStatusCode.OK,_houseService.AllStatePopulation());
